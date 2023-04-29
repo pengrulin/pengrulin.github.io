@@ -3,8 +3,6 @@ from AppCode import average_rate
 app = Flask(__name__)
 
 
-
-
 @app.route('/', methods=["GET", "POST"])
 def nearestStation():
     if request.method == "POST":
@@ -14,7 +12,7 @@ def nearestStation():
         numRoom = request.form['numroom']
         averageRate = average_rate(staeName,cityName,zipCode,numRoom)
         
-        return render_template("result1.html", cityName = cityName, averageRate= averageRate, numroom = numRoom)
+        return render_template("result.html", cityName = cityName, averageRate= averageRate, numroom = numRoom)
     else:
         return render_template("index.html")
 
